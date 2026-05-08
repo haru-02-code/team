@@ -9,25 +9,66 @@
 </head>
 <body>
     <div id="wrap">
+    
         <h1>新しいタスクを追加</h1>
+        
         <div>
             <label class="komidashi">タスク名</label>
-            <input class="description" type="text" placeholder="タスク名を入力してください">
+            <input class="description" id="task-name" type="text" placeholder="タスク名を入力してください">
         </div>
+
         <div>
             <label class="komidashi">タスクの説明</label>
             <!-- 高さを持たせて複数行っぽくするならtextareaを使う -->
             <textarea class="description" id="tasksetumei" rows="4" placeholder="タスクの詳細を入力してください"></textarea>
         </div>
+
         <div>
             <label class="komidashi">タスクバーの色</label>
             <div class="color-list">
-                <button class="color-btn" data-color="#ef4444" aria-label="赤"></button>
-                <button class="color-btn" data-color="#3b82f6" aria-label="青"></button>
-                <button class="color-btn" data-color="#22c55e" aria-label="緑"></button>
-                <button class="color-btn" data-color="#f59e0b" aria-label="オレンジ"></button>
+                <button class="color-btn" data-color="#3B82F6" aria-label="青"></button>
+                <button class="color-btn" data-color="#A855F7" aria-label="紫"></button>
+                <button class="color-btn" data-color="#EC4899" aria-label="ピンク"></button>
+                <button class="color-btn" data-color="#EF4444" aria-label="赤"></button>
+                <button class="color-btn" data-color="#F97316" aria-label="オレンジ"></button>
+                <button class="color-btn" data-color="#EAB308" aria-label="黄"></button>
+                <button class="color-btn" data-color="#22C55E" aria-label="緑"></button>
+                <button class="color-btn" data-color="#14B8A6" aria-label="青緑"></button>
             </div>
         </div>
+
+        <div class="grid">
+            <!-- 開始日時 -->
+            <div>
+                <label class="komidashi">
+                    開始日時
+                </label>
+                <div class="nyuryokurantati">
+                    <input type="date" id="startdate" class="nyuryokuran">
+                    <input type="time" id="starttime" class="nyuryokuran">
+                </div>
+            </div>
+            <!-- 終了日時 -->
+            <div>
+                <label class="komidashi">
+                    終了日時
+                </label>
+                <div class="nyuryokurantati">
+                    <input type="date" id="enddate" class="nyuryokuran">
+                    <input type="time" id="endtime" class="nyuryokuran">
+                </div>
+            </div>
+        </div>
+
+        <div class="buttontati">
+            <button id="cancel" class="btn cancel-btn">
+                キャンセル
+            </button>
+            <button id="add" class="btn add-btn" disabled> <!--- disabledで最初は押せないようにする -->
+                追加
+            </button>
+        </div>
+
     </div>
 
     <!-- js読み込み -->
