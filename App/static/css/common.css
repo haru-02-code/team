@@ -1,1 +1,62 @@
 @charset "utf-8";
+
+div#wrap{
+  width: 600px;
+  margin: 0 auto 0 auto;
+  padding: 20px 50px;
+  box-shadow: 0 0 10px #0008;
+}
+
+h1{
+    font-size: 1.8rem;
+}
+
+/* タスク名入力 */
+.komidashi{
+    display: block;
+    padding: 30px 0 10px 0;
+    color: rgb(74, 74, 74);
+}
+.description{
+    width: 100%;
+    padding: 0.75rem 1rem;
+    line-height: 1.5;
+
+    border: 1px solid #D1D5DB;
+    border-radius: 0.5rem;
+    outline: none; 
+    box-sizing: border-box;/*要素の幅や高さを計算する際、borderとpaddingをそのサイズに含める(幅崩れの防止)*/
+}
+.description:focus{
+    outline: none; /*欄を選択したときに出てくる枠の削除*/
+    border-color: transparent; /*transparentは透明にするという設定*/
+    box-shadow: 0 0 0 2px #3B82F6;
+}
+
+/* タスクの説明入力 */
+#tasksetumei{
+    resize: none; /*ユーザー引き延ばし無効*/
+}
+
+/* タスクの色選択 */
+.color-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /*子要素が親要素の幅に収まりきらない場合、自動的に次の行へ折り返す*/
+}
+.color-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.color-btn:hover {
+  transform: scale(1.05);
+}
+/* 選択中 */
+.color-btn.active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 6px #9ca3af;
+}

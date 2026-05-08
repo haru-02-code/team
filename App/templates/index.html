@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todoアプリ</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
 </head>
 <body>
-    <h1>こんにちは！</h1>
+    <div id="wrap">
+        <h1>新しいタスクを追加</h1>
+        <div>
+            <label class="komidashi">タスク名</label>
+            <input class="description" type="text" placeholder="タスク名を入力してください">
+        </div>
+        <div>
+            <label class="komidashi">タスクの説明</label>
+            <!-- 高さを持たせて複数行っぽくするならtextareaを使う -->
+            <textarea class="description" id="tasksetumei" rows="4" placeholder="タスクの詳細を入力してください"></textarea>
+        </div>
+        <div>
+            <label class="komidashi">タスクバーの色</label>
+            <div class="color-list">
+                <button class="color-btn" data-color="#ef4444" aria-label="赤"></button>
+                <button class="color-btn" data-color="#3b82f6" aria-label="青"></button>
+                <button class="color-btn" data-color="#22c55e" aria-label="緑"></button>
+                <button class="color-btn" data-color="#f59e0b" aria-label="オレンジ"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- js読み込み -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/common.js"></script>
 </body>
 </html>
