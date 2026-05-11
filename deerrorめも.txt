@@ -1,0 +1,34 @@
+@app.route("/")  # ブラウザで http://127.0.0.1:5000/ にアクセスしたときに実行する
+def index():  # トップページを表示する関数
+    try:  # エラーが出ても原因を画面に表示できるようにする
+
+        response = supabase.table("main-to-do").select("*").execute()  # main-to-doテーブルから全データを取得する
+        todos = response.data  # 取得したデータ本体をtodosに入れる
+
+        events = []  # FullCalendarに渡すための空リストを作る
+
+        for todo in todos:  # todosの中身を1件ずつ取り出す
+            events.append({  # FullCalendar用の形に変換してeventsに追加する
+                "title": todo.get("todonaiyou", "無題"),  # todonaiyouをタイトルにする。無ければ「無題」
+                "start": todo.get("start_at"),  # start_atを開始日時にする
+                "end": todo.get("end_at"),  # end_atを終了日時にする
+                "color": todo.get("color") or "blue",  # colorが空なら青にする
+                "textColor": "white",  # 文字色を白にする
+                "extendedProps": {  # FullCalendarに追加情報を持たせる
+                    "person": todo.get("tantou") or "未設定"  # tantouが空なら「未設定」にする
+                }
+            })
+
+        print(events)  # ターミナルにeventsの中身を表示して確認する
+
+        return render_template("calendar.html", events=events)  # calendar.htmlを表示し、eventsを渡す
+
+    except Exception as e:  # 途中でエラーが出たときに実行する
+        return f"エラー内容：{e}"  # ブラウザにエラー内容を表示する
+
+
+
+
+supabaseのしょりがわるい可能性がたかい
+次回
+ちゃっぴーにつぎKEYをかえてすることをおしえてもらう
